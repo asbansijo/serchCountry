@@ -37,9 +37,11 @@ function App() {
         alignItems:"center",
         height:"50vh",
         justifyContent:"center",
+        margin:"10px",
+        padding:"10px",
     }}>
       <input style={{ width:'400px', height:'25px',padding:'10px', borderRadius:'5px'}} type="text" value={searchTerm} onChange={handleChange} placeholder="Search for countries..." />
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width:'100%' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width:'100%', marginTop:"10px" }}>
         {filteredCountries.map(country => (
           <div key={country.cca2} className="countryCard" style={{ margin: '10px', padding: '10px', border: '1px solid #ccc', width: '150px' }}>
             <img src={country.flags.png} alt={country.name.common} width="100%" />
