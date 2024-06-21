@@ -42,6 +42,7 @@ function Countries() {
 
     return (
         <div>
+            <form action="">
             <input
                 type="text"
                 placeholder="Search for a country..."
@@ -54,6 +55,7 @@ function Countries() {
                     fontSize: "16px",
                 }}
             />
+            </form>
             <div style={{
                 display: "flex",
                 flexWrap: "wrap",
