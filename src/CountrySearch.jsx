@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CountryCard = ({name, flagimg, flagAltTxt}) => {
+const CountryCard = ({ name, flagimg, flagAltTxt }) => {
     return (
         <div className="countryCard" style={{
             display: "flex",
@@ -14,10 +14,7 @@ const CountryCard = ({name, flagimg, flagAltTxt}) => {
             width: "200px",
             height: "200px"
         }}>
-            <img src={flagimg}
-            alt={flagAltTxt}
-            style={{width:"100%", height:"100px", }}
-            />
+            <img src={flagimg} alt={flagAltTxt} style={{ width: "100%", height: "100px" }} />
             <h2>{name}</h2>
         </div>
     );
@@ -30,9 +27,9 @@ function Countries() {
 
     useEffect(() => {
         fetch(API_URL)
-        .then((res) => res.json())
-        .then((data) => setCountries(data))
-        .catch((error) => console.error("Error fetching data:", error));
+            .then((res) => res.json())
+            .then((data) => setCountries(data))
+            .catch((error) => console.error("Error fetching data:", error));
     }, []);
 
     const handleSearch = (e) => {
@@ -45,7 +42,6 @@ function Countries() {
 
     return (
         <div>
-            <nav style={{width:"100%", backgroundColor:"#dddddd"}}>
             <input
                 type="text"
                 placeholder="Search for a country..."
@@ -53,33 +49,37 @@ function Countries() {
                 onChange={handleSearch}
                 style={{
                     padding: "10px",
-                    margin: "10px",
-                    width: "50%",
+                    margin: "5px",
+                    width: "calc(50% - 40px)",
                     fontSize: "16px",
                 }}
             />
-            </nav>
             <div style={{
-                display:"flex",
-                flexWrap:"wrap",
-                alignItems:"center",
-                height:"100vh",
-                justifyContent:"center",
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100vh"
             }}>
-                {filteredCountries.map((country) => (
-                    <CountryCard 
-                        key={country.cca3}
-                        name={country.name.common} 
-                        flagimg={country.flags.png} 
-                        flagAltTxt={country.name.alt || country.name.common}
-                    />
-                ))}
+                {filteredCountries.length > 0 ? (
+                    filteredCountries.map((country) => (
+                        <CountryCard
+                            key={country.cca3}
+                            name={country.name.common}
+                            flagimg={country.flags.png}
+                            flagAltTxt={country.name.alt || country.name.common}
+                        />
+                    ))
+                ) : (
+                    <p>No matching countries found</p>
+                )}
             </div>
         </div>
     );
 }
 
 export default Countries;
+
 
 
 // import { useEffect, useState } from "react";
