@@ -7,6 +7,31 @@
   pointer-events: none;
 }
 
+.App {
+  text-align: center;
+}
+
+.countryCard {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
+  text-align: center;
+}
+
+.countryCard img {
+  width: 100px;
+  height: auto;
+}
+
+.country-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
